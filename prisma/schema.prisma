@@ -18,3 +18,59 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+model Company {
+  id          String   @unique @default(uuid())
+  name        String   @unique
+  description String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  Department Department[]
+}
+
+model Department {
+  id          String   @unique @default(uuid())
+  name        String   @unique
+  description String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  site      Site[]
+  company   Company @relation(fields: [companyId], references: [id])
+  companyId String
+}
+
+model Site {
+  id          String   @unique @default(uuid())
+  name        String   @unique
+  alias       String   @unique
+  description String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  department   Department @relation(fields: [departmentId], references: [id])
+  departmentId String
+}
+
+model ProcessFunction {
+  id             String           @unique @default(uuid())
+  function       String           @unique
+  alias          String           @unique
+  description    String
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+  InstrumentType InstrumentType[]
+}
+
+model InstrumentType {
+  id          String   @unique @default(uuid())
+  type        String   @unique
+  alias       String   @unique
+  description String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  processfunction   ProcessFunction @relation(fields: [processfunctionId], references: [id])
+  processfunctionId String
+}
