@@ -33,7 +33,7 @@ const CompanyListPage: NextPage = () => {
                   <tr key={id}>
                     <td>{name}</td>
                     <td>{description}</td>
-                    <td><Link href={`/company/${id}`}>edit</Link></td>
+                    <td><Link href={`/company/edit/${id}`}>edit</Link></td>
                   </tr>
                 ))}
               </tbody>
