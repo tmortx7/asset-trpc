@@ -27,6 +27,7 @@ const CreateDepartmentPage: NextPage = () => {
             name: values.name,
             description: values.description!,
           });
+          console.log(values)
           router.push("/department");
         }}
       >
@@ -47,9 +48,9 @@ const CreateDepartmentPage: NextPage = () => {
                   name="companyId"
                   className="input input-bordered w-full max-w-xs"
                 >
-                  {/* <option disabled value="">
+                  <option disabled value="">
                     (Select a company)
-                  </option> */}
+                  </option>
                   {data?.map((companyx: any) => (
                     <option value={companyx.id}>{companyx.name}</option>
                   ))}

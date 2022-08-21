@@ -36,19 +36,7 @@ export const departmentRouter = createRouter()
       });
     },
   })
-  .query("getAll", {
-    async resolve({ ctx: { prisma } }) {
-      return await prisma.company.findMany({
-        include: {
-          departments: {
-            select: {
-              name: true,
-            },
-          },
-        },
-      });
-    },
-  })
+
 
   .mutation("createDepartment", {
     input: departmentSchema,

@@ -23,7 +23,11 @@ export const companyRouter = createRouter()
 
   .query("companies", {
     resolve({ ctx }) {
-      return ctx.prisma.company.findMany();
+      return ctx.prisma.company.findMany({
+        include : {
+          departments:  true
+        }
+      });
     },
   })
   .query("single-company", {
@@ -36,7 +40,7 @@ export const companyRouter = createRouter()
       });
     },
   })
-  
+
   .mutation("createCompany", {
     input: companySchema,
     resolve: async ({ input, ctx }) => {

@@ -25,14 +25,16 @@ const CompanyListPage: NextPage = () => {
                 <tr>
                   <th>Name</th>
                   <th>Description</th>
+                  <th>Departments</th>
                   <th>edit</th>
                 </tr>
               </thead>
               <tbody>
-                {data?.map(({ id, name, description }) => (
+                {data?.map(({ id, name, description, departments }) => (
                   <tr key={id}>
                     <td>{name}</td>
                     <td>{description}</td>
+                    <td>value</td>
                     <td><Link href={`/company/edit/${id}`}>edit</Link></td>
                   </tr>
                 ))}

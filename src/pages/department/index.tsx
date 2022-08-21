@@ -8,7 +8,7 @@ import { IDepartment } from "../../schema/department.schema";
 
 const DepartmentListPage: NextPage = () => {
 
-  const {data} = trpc.useQuery(["departments.getAll"]);
+  const {data} = trpc.useQuery(["departments.departments"]);
 
   return (
     <div>
@@ -30,7 +30,7 @@ const DepartmentListPage: NextPage = () => {
                 </tr>
               </thead>
               <tbody>
-                {data?.map(({ id, name, description,departments }) => (
+                {data?.map(({ id, name, description }) => (
                   <tr key={id}>
                     <td>{name}</td>
                     <td>{description}</td>
