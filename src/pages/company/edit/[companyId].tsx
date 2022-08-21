@@ -40,11 +40,10 @@ const EditCompanyPage: NextPage = () => {
           router.push("/company");
         }}
       >
-        <div className="max-w-xl mx-auto divide-y md:max-w-4xl">
+        <div className="flex min-h-screen justify-center items-center">
           <div className="py-20">
             <h2 className="text-2xl font-bold">Edit Company</h2>
-            <div className="mt-4 max-w-md"></div>
-            <Form className="grid grid-cols-1 gap-2">
+            <Form className="grid grid-cols-1 gap-2 align-center">
               <div className="form-control">
                 <label className="label" htmlFor="name">
                   <span className="label-text">Name</span>

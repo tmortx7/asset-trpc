@@ -36,6 +36,7 @@ export const companyRouter = createRouter()
       });
     },
   })
+  
   .mutation("createCompany", {
     input: companySchema,
     resolve: async ({ input, ctx }) => {
